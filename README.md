@@ -1,6 +1,6 @@
 # TrabalhoAeds
 
-Trabalho da Disciplica de Algoritimos e Estruturas de Dados do 1 Semestre de Engenharia de Software da Puc Minas
+Trabalho da Disciplina de Algoritimos e Estruturas de Dados do 1 Semestre de Engenharia de Software da Puc Minas
 
 📁 Estrutura de Pastas  
 Cada entidade do projeto possui sua própria pasta organizada da seguinte forma:
