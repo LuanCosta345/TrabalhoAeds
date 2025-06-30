@@ -106,6 +106,14 @@ void deletarLocal() {
     cout << "Local não encontrado!\n";
 }
 
+Local getLocal(char *nome){
+    for(auto& local : locais){
+        if(!strcmp(nome, local.getNome)){
+            return local;
+        }
+    }
+}
+
 int main() {
     int opcao;
     do {
