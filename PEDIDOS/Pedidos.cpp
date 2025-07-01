@@ -101,8 +101,13 @@ void deletarPedido() {
 }
 
 void mostrarMenu() {
-    cout << "\n1 Criar | 2 Listar | 3 Atualizar | 4 Deletar | 5 Sair\n"
-         << "Escolha: ";
+    cout << "\n--- Menu de Pedidos ---\n";
+    cout << "[1] Cadastrar pedidos\n";
+    cout << "[2] Listar pedidos\n";
+    cout << "[3] Atualizar pedidos\n";
+    cout << "[4] Deletar pedidos\n";
+    cout << "[0] Sair\n";
+    cout << "Escolha uma opção: ";
 }
 
 int main() {
@@ -116,9 +121,9 @@ int main() {
             case 2: listarPedidos(); break;
             case 3: atualizarPedido(); break;
             case 4: deletarPedido(); break;
-            case 5: cout << "Saindo...\n"; break;
+            case 0: cout << "Saindo...\n"; break;
             default: cout << "Opção inválida.\n";
         }
-    } while (opc != 5);
+    } while (opc != 0);
     return 0;
 }
