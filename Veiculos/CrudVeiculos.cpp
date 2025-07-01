@@ -13,7 +13,6 @@ class CrudVeiculos {
     acho que não faz sentido ficar chamando lerDOarquivo em todo metodo, e sim ser um mettodo no menu sla*/
 
     void criarVeiculo() {
-        //lerLocaisDoArquivo();
         char placa[100], modelo[100], localNome[100];
         Estado estado;
         cout << "Digite a placa do veiculo: ";
@@ -35,12 +34,10 @@ class CrudVeiculos {
             return;
         }
         veiculos.push_back(Veiculo(placa, modelo, local));
-        // salvarLocaisEmArquivo();
         cout << "Local cadastrado com sucesso!\n";
     }
 
     void listarVeiculos() {
-        //lerLocaisDoArquivo();
         if (veiculos.empty()) {
             cout << "Nenhum veículo cadastrado.\n";
             return;
@@ -55,7 +52,6 @@ class CrudVeiculos {
     }
 
     void atualizarLocal() {
-        //lerLocaisDoArquivo();
         char placa[100];
         cout << "Digite a placa do local a ser atualizado: ";
         cin.getline(placa, 100);
@@ -73,7 +69,6 @@ class CrudVeiculos {
                 }
                 v.setModelo(modelo);
                 v.setLocal(local);
-                //salvarLocaisEmArquivo();
                 cout << "Veiculo atualizado com sucesso!\n";
                 return;
             }
@@ -82,14 +77,12 @@ class CrudVeiculos {
     }
 
     void deletarVeiculo() {
-        //lerLocaisDoArquivo();
         char placa[100];
         cout << "Digite a placa do veiculo a ser deletado: ";
         cin.getline(nome, 100);
         for (auto& v : veiculos) {
             if (v.getPlaca() == placa) {
                 veiculos.erase(v);
-                //salvarLocaisEmArquivo();
                 cout << "Veiculo deletado com sucesso!\n";
                 return;
             }

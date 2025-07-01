@@ -39,7 +39,6 @@ class CrudLocais{
     }
 
     void criarLocal() {
-        lerLocaisDoArquivo();
         string nome;
         float x, y;
         cout << "Digite o nome do local: ";
@@ -56,12 +55,10 @@ class CrudLocais{
             }
         }
         locais.push_back(Local(nome, x, y));
-        salvarLocaisEmArquivo();
         cout << "Local cadastrado com sucesso!\n";
     }
 
     void listarLocais() {
-        lerLocaisDoArquivo();
         if (locais.empty()) {
             cout << "Nenhum local cadastrado.\n";
             return;
@@ -73,7 +70,6 @@ class CrudLocais{
     }
 
     void atualizarLocal() {
-        lerLocaisDoArquivo();
         string nome;
         cout << "Digite o nome do local a ser atualizado: ";
         cin.ignore();
@@ -87,7 +83,6 @@ class CrudLocais{
                 cin >> y;
                 l.setCoordenadaX(x);
                 l.setCoordenadaY(y);
-                salvarLocaisEmArquivo();
                 cout << "Local atualizado com sucesso!\n";
                 return;
             }
@@ -96,7 +91,6 @@ class CrudLocais{
     }
 
     void deletarLocal() {
-        lerLocaisDoArquivo();
         string nome;
         cout << "Digite o nome do local a ser deletado: ";
         cin.ignore();
@@ -104,7 +98,6 @@ class CrudLocais{
         for (auto it = locais.begin(); it != locais.end(); ++it) {
             if (it->getNome() == nome) {
                 locais.erase(it);
-                salvarLocaisEmArquivo();
                 cout << "Local deletado com sucesso!\n";
                 return;
             }
