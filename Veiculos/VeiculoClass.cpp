@@ -13,7 +13,7 @@ class Veiculo{
     char placa[100]; //È o UID do carro, não pode ser repetida
     char modelo[100];
     Estado estado;
-    Local local;
+    Local &local;
 
    public:
    //Construtor padrão
@@ -55,7 +55,7 @@ class Veiculo{
         this->estado = novoEstado;
     }
 
-    void setLocal(const Local novoLocal) {
+    void setLocal(const Local& novoLocal) {
         this->local = novoLocal;
     } 
 
