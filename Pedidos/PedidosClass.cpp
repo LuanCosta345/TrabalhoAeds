@@ -10,18 +10,20 @@ private:
     int quantidade;
     float valorTotal;
     char descricao[100];
+    int idPartida;
+    int idDestino;
 
     void atualizarTotal() {
         valorTotal = valor * quantidade;
     }
 
 public:
-    Pedido(int id = 0, float valor = 0.0f, int quantidade = 1, const char* desc = "") {
+    Pedido(int id = 0, const char* desc = "", float valor = 0.0f, int quantidade = 1) {
         this->id = id;
-        this->valor = valor;
-        this->quantidade = quantidade;
         strncpy(this->descricao, desc, sizeof(this->descricao)-1);
         this->descricao[sizeof(this->descricao)-1] = '\0';
+        this->valor = valor;
+        this->quantidade = quantidade;
         atualizarTotal();
     }
 
@@ -30,6 +32,8 @@ public:
     int getQuantidade() const { return quantidade; }
     float getValorTotal() const { return valorTotal; }
     const char* getDescricao() const { return descricao; }
+    int getPartida() const { return idPartida; }
+    int getDestino() const { return idDestino; }
 
     void setValor(float v) {
         valor = v;
@@ -52,5 +56,13 @@ public:
 
     void carregar(std::ifstream &ifs) {
         ifs.read(reinterpret_cast<char*>(this), sizeof(Pedido));
+    }
+
+    void setPartida(int p) {
+        idPartida = p;
+    }
+
+    void setDestino(int d) {
+        idDestino = d;
     }
 };

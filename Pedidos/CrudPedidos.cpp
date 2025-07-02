@@ -35,20 +35,32 @@ void criarPedido() {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
     cout << "Quantidade: ";
     while (!(cin >> quantidade) || quantidade < 1) {
         cout << "Quantidade inválida (>=1). Tente novamente: ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
     cin.ignore();
     char desc[100];
     cout << "Descrição (máx 99 chars): ";
     cin.getline(desc, sizeof(desc));
 
-    Pedido p(proximoId++, valor, quantidade, desc);
+    int partida, destino;
+    cout << "ID da partida: ";
+    cin >> partida;
+    cout << "ID do destino: ";
+    cin >> destino;
+
+    Pedido p(proximoId++, desc, valor, quantidade);
+    p.setPartida(partida);
+    p.setDestino(destino);
+
     pedidos.push_back(p);
     salvarParaArquivo();
+
     cout << "Criado ID " << p.getId() 
          << ", Total R$" << p.getValorTotal() << "\n";
 }
@@ -60,9 +72,12 @@ void listarPedidos() {
     }
     for (auto &p : pedidos) {
         cout << "ID " << p.getId()
-             << " | R$" << p.getValor() << " × " << p.getQuantidade()
+             << " | " << p.getDescricao() 
+             << " | R$" << p.getValor() << " x " << p.getQuantidade()
              << " = R$" << p.getValorTotal()
-             << " | " << p.getDescricao() << "\n";
+             << " | Partida: " << p.getPartida()
+             << " | Destino: " << p.getDestino()
+             << "\n";
     }
 }
 
@@ -87,14 +102,24 @@ void atualizarPedido() {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
+
             cin.ignore();
             char desc[100];
             cout << "Nova descrição: ";
             cin.getline(desc, sizeof(desc));
 
+            int novaPartida, novoDestino;
+            cout << "Novo ID de partida: ";
+            cin >> novaPartida;
+            cout << "Novo ID de destino: ";
+            cin >> novoDestino;
+
             p.setValor(novoValor);
             p.setQuantidade(novaQuantidade);
             p.setDescricao(desc);
+            p.setPartida(novaPartida);
+            p.setDestino(novoDestino);
+
             salvarParaArquivo();
             cout << "Atualizado ID " << id 
                  << ", Total R$" << p.getValorTotal() << "\n";
