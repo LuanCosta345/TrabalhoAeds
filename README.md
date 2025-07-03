@@ -15,8 +15,6 @@ Esta disciplina envolve conceitos básicos de lógica de programação, estrutur
 Contribuições
 Este projeto tem finalidade acadêmica e uso pessoal, porém contribuições, sugestões e melhorias são sempre muito bem-vindas!
 
-Desenvolvido por {nome}, {nome}, {nome}
-
 
 # Sistema de Gerenciamento de Pedidos
 
