@@ -8,9 +8,6 @@
 #include <cstdio>
 #include <cstdlib>
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE LOCAL
-// ===================================================================
 #define MAX_NOME 100
 
 class Local {
@@ -63,9 +60,6 @@ void Local::exibir() const {
     std::cout << "ID: " << id << ", Nome: " << nome << ", X: " << coordenadaX << ", Y: " << coordenadaY << std::endl;
 }
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE CRUD DE LOCAIS
-// ===================================================================
 const int MAX_LOCAIS_CRUD = 1000;
 const char* ARQUIVO_LOCAIS = "locais.dat";
 const char* ARQUIVO_CONTADOR_LOCAIS = "contador_locais.dat";
@@ -270,9 +264,6 @@ int CrudLocais::menu() {
     return 0;
 }
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE VEICULO
-// ===================================================================
 enum Estado { DISPONIVEL, OCUPADO };
 
 class Veiculo {
@@ -318,9 +309,6 @@ void Veiculo::setModelo(const char *m) { strncpy(this->modelo, m, 49); }
 void Veiculo::setStatus(Estado s) { this->status = s; }
 void Veiculo::setLocal(Local l) { this->local = l; }
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE CRUD DE VEICULOS
-// ===================================================================
 class CrudVeiculos {
 private:
     CrudLocais& crudLocaisRef;
@@ -471,9 +459,6 @@ int CrudVeiculos::menu() {
 }
 
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE PEDIDO
-// ===================================================================
 class Pedido {
 private:
     int id;
@@ -511,9 +496,6 @@ void Pedido::setPeso(float peso) { this->peso = peso; }
 void Pedido::setOrigem(Local origem) { this->origem = origem; }
 void Pedido::setDestino(Local destino) { this->destino = destino; }
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE CRUD DE PEDIDOS
-// ===================================================================
 class CrudPedidos {
 private:
     int proximoId;
@@ -680,9 +662,6 @@ int CrudPedidos::menu() {
     return 0;
 }
 
-// ===================================================================
-// DEFINIÇÃO DA CLASSE ENTREGA
-// ===================================================================
 class Entrega {
 private:
     std::vector<Veiculo>& veiculos;
@@ -745,9 +724,6 @@ void Entrega::realizarProximaEntrega() {
     std::cout << "Pedido ID: " << pedidoAtual.getId() << " finalizado e removido da fila." << std::endl;
 }
 
-// ===================================================================
-// FUNÇÕES AUXILIARES DO MENU PRINCIPAL
-// ===================================================================
 void backupDados(CrudLocais& crudLocais, CrudVeiculos& crudVeiculos, CrudPedidos& crudPedidos) {
     std::cout << "\nIniciando processo de backup..." << std::endl;
     crudLocais.salvarTodosLocais();
@@ -764,9 +740,6 @@ void restaurarDados(CrudLocais& crudLocais, CrudVeiculos& crudVeiculos, CrudPedi
     std::cout << "Dados restaurados dos arquivos com sucesso." << std::endl;
 }
 
-// ===================================================================
-// FUNÇÃO PRINCIPAL (MAIN)
-// ===================================================================
 int main() {
     int opcao;
     CrudLocais crudLocais;
