@@ -18,7 +18,7 @@ Este projeto tem finalidade acadêmica e uso pessoal, porém contribuições, su
 Desenvolvido por {nome}, {nome}, {nome}
 
 
-# Sistema de Gerenciamento de Locais
+# Sistema de Gerenciamento de Pedidos
 
 ## Visão Geral
 Este sistema implementa um CRUD (Create, Read, Update, Delete) completo para gerenciamento de locais geográficos, atendendo aos requisitos específicos:
